@@ -9,6 +9,7 @@ export default function EventItem(props){
 	const {title, image, date, location, id } = props
 	const readableDate = new Date(date).toLocaleDateString('en-US', {day:'numeric', month:'long', year:'numeric' }) 
 	const exploreLink = `/events/${id}`
+	
 	return(
 		<li className={Style.item}>
 			<img src={`/${image}`} alt=''/>
@@ -25,8 +26,10 @@ export default function EventItem(props){
 					</div>
 				</div>
 				<div className={Style.actions}>
-					<ArrowRightIcon/>
-					<Button link={exploreLink}>Explore Event</Button>
+					<Button link={exploreLink}>
+						<span>Explore Event</span>
+						<span className={Style.icon}><ArrowRightIcon/></span>
+					</Button>
 				</div>
 			</div>
 		</li>
