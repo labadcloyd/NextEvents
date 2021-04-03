@@ -9,19 +9,13 @@ export default function EventID(){
 	const router = useRouter();
 	const query = router.query.eventid
 	const data = getEventById(query)
-	const {title, date, location, image, description, id} = data
-	const readableDate = new Date(date).toLocaleDateString('en-US', {day:'numeric', month:'long', year:'numeric' }) 
-	if(!data){
-		return(
-			<p>Error 404: No data found</p>
-		)
-	}
+	if(!data){return(<EventContent><p>Error 404: No data found</p></EventContent>)}
 	return(
 		<Fragment>
-			<EventSummary title={title}/>
-			<EventLogistics date={readableDate} address={location} image={image} imageAlt={title} />
+			<EventSummary title={data.title}/>
+			<EventLogistics date={data.date} address={data.location} image={data.image} imageAlt={data.title} />
 			<EventContent>
-				<p>{description}</p>
+				<p>{data.description}</p>
 			</EventContent>
 		</Fragment>
 	)

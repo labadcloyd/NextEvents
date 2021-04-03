@@ -1,5 +1,5 @@
 import EventItem from './event-item'
-import Style from '../../styles/event-list.module.css'
+import Style from './event-list.module.css'
 
 export default function EventList(props){
 	const items = props.items
