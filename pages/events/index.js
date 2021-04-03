@@ -1,11 +1,14 @@
-import {useRouter} from 'next/router'
+import {getAllEvents} from '../../dummy-data'
+import EventList from '../../components/events/event-list'
+import EventSearch from '../../components/events/event-search'
+import { Fragment } from 'react';
 
 export default function EventsPage(){
-	const router = useRouter();
-	const query = router.query
+	const data = getAllEvents();
 	return(
-		<div>
-			<h1>All Events</h1>
-		</div>
+		<Fragment>
+			<EventSearch></EventSearch>
+			<EventList items={data} />
+		</Fragment>
 	)
 }
