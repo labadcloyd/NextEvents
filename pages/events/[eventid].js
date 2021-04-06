@@ -7,7 +7,6 @@ import EventContent from '../../components/event-detail/event-content'
 
 export default function EventID(props){
 	const {data} = props
-	if(!data){return(<EventContent><p>Error 404: No data found</p></EventContent>)}
 	return(
 		<Fragment>
 			<EventSummary title={data.title}/>
@@ -21,6 +20,11 @@ export default function EventID(props){
 export async function getServerSideProps(context){
 	const query = context.params.eventid;
 	const specificEvent = await getEventById(query)
+	if(!specificEvent){
+		return{
+			notFound:true
+		}
+	}
 	return{
 		props:{
 			data: specificEvent
