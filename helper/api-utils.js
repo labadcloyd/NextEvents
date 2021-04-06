@@ -19,6 +19,11 @@ export async function getFeaturedEvents() {
 	return featuredEvent
 }
 
+export async function getEventById(id) {
+	const allEvents = await getAllEvents();
+	return allEvents.find((event) => {return event.id === id});
+}
+
 export async function getFilteredEvents(dateFilter) {
 const { year, month } = dateFilter;
 
@@ -28,8 +33,4 @@ let filteredEvents = DUMMY_EVENTS.filter((event) => {
 });
 
 return filteredEvents;
-}
-
-export async function getEventById(id) {
-return DUMMY_EVENTS.find((event) => event.id === id);
 }
