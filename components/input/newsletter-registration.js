@@ -1,12 +1,13 @@
 import classes from './newsletter-registration.module.css';
+import axios from 'axios'
 
 function NewsletterRegistration() {
   function registrationHandler(event) {
     event.preventDefault();
-
-    // fetch user input (state or refs)
-    // optional: validate input
-    // send valid data to API
+    axios.post('/api/newsletterRegistration', {data:{email:event.target.email.value}}).then((response)=>{
+      console.log(response)
+    })
+    
   }
 
   return (

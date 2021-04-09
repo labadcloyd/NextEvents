@@ -4,6 +4,7 @@ import {getAllEvents, getFeaturedEvents} from '../helper/api-utils'
 import NewsletterRegistration from '../components/input/newsletter-registration';
 
 export default function Home(props) {
+  
   return (
     <div>
       <NewsletterRegistration />
