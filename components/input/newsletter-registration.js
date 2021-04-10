@@ -4,10 +4,9 @@ import axios from 'axios'
 function NewsletterRegistration() {
   function registrationHandler(event) {
     event.preventDefault();
-    axios.post('/api/newsletterRegistration', {data:{email:event.target.email.value}}).then((response)=>{
+    axios.post('/api/newsletterRegistration', {email:event.target.email.value}).then((response)=>{
       console.log(response)
     })
-    
   }
 
   return (

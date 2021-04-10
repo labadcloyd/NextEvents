@@ -1,11 +1,11 @@
 import { useState } from 'react';
-
+import axios from 'axios';
 import CommentList from './comment-list';
 import NewComment from './new-comment';
 import classes from './comments.module.css';
 
 function Comments(props) {
-  const { eventId } = props;
+  const { eventid } = props;
 
   const [showComments, setShowComments] = useState(false);
 
@@ -13,8 +13,8 @@ function Comments(props) {
     setShowComments((prevStatus) => !prevStatus);
   }
 
-  function addCommentHandler(commentData) {
-    // send data to API
+  async function addCommentHandler(commentData) {
+    await axios.post(`/api/comments/${eventid}`, {commentData})
   }
 
   return (

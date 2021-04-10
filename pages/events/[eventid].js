@@ -15,7 +15,7 @@ export default function EventID(props){
 			<EventContent>
 				<p>{data.description}</p>
 			</EventContent>
-			<Comments eventId={data.id} />
+			<Comments eventid={data.id} />
 		</Fragment>
 	)
 }
